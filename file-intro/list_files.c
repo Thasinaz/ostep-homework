@@ -58,7 +58,7 @@ void list_file(const char *directory) {
       } else if (type == S_IFIFO) {
         printf("p");
       }
-      printf("%03o %s\t%s\t%ld\t%s ", statbuf.st_mode & PERMISSION_MASK,
+      printf("%04o %s\t%s\t%ld\t%s ", statbuf.st_mode & PERMISSION_MASK,
              getpwuid(statbuf.st_uid)->pw_name,
              getgrgid(statbuf.st_gid)->gr_name, statbuf.st_size, time_buf);
     }
