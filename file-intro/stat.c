@@ -9,7 +9,7 @@
 
 #define PERMISSION_MASK 07777
 
-void print_stat(struct stat *statbuf) {
+void print_stat(const struct stat *statbuf) {
   printf("Size: %ld\tBlocks: %ld\tIO Block: %ld\t", statbuf->st_size,
          statbuf->st_blocks, statbuf->st_blksize);
   mode_t mode = statbuf->st_mode;
