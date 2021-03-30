@@ -1,6 +1,7 @@
 #include <grp.h>
 #include <pwd.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <time.h>
@@ -45,6 +46,7 @@ int main(int argc, char *argv[]) {
       print_stat(&statbuf);
     } else {
       perror("stat");
+      exit(1);
     }
   }
   return 0;
