@@ -64,6 +64,7 @@ void list_file(const char *directory) {
     }
     printf("%s\n", name);
   }
+  closedir(dirfd);
 }
 
 int main(int argc, char *argv[]) {
