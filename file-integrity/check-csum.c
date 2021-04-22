@@ -39,7 +39,7 @@ int main(int argc, char *argv[]) {
             uint8_t csum;
             int tmp = fread(&csum, 1, 1, csum_fd);
             if (tmp == 0) {
-                if (ferror(file_fd)) {
+                if (ferror(csum_fd)) {
                     perror("fread");
                     exit(-1);
                 } else {
@@ -63,7 +63,7 @@ int main(int argc, char *argv[]) {
         uint8_t csum;
         int tmp = fread(&csum, 1, 1, csum_fd);
         if (tmp == 0) {
-            if (ferror(file_fd)) {
+            if (ferror(csum_fd)) {
                 perror("fread");
                 exit(-1);
             } else {
@@ -75,6 +75,10 @@ int main(int argc, char *argv[]) {
             printf("file corrupted\n");
             return 0;
         }
+    }
+    if (fread(&rc, 1, 1, csum_fd) != 0) {
+        printf("file corrupted\n");
+        return 0;
     }
 
     fclose(file_fd);
