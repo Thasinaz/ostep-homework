@@ -35,5 +35,6 @@ int main(int argc, char *argv[]) {
 
     unsigned short rc = ((short) s1 << 8) + (short) s2;
     fwrite(&rc, 2, 1, stdout);
+    fclose(fd);
     return 0;
 }

@@ -30,5 +30,6 @@ int main(int argc, char *argv[]) {
     }
 
     fwrite(&rc, 1, 1, stdout);
+    fclose(fd);
     return 0;
 }

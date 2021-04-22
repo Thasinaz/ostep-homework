@@ -54,5 +54,6 @@ int main(int argc, char *argv[]) {
 
     uint16_t rc = crc(fd);
     fwrite(&rc, 2, 1, stdout);
+    fclose(fd);
     return 0;
 }
