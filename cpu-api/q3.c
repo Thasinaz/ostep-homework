@@ -9,15 +9,17 @@ void print_good_bye() {
 }
 
 int main() {
-    int rc = fork();
     pid_t ppid = getpid();
     signal(SIGINT, print_good_bye);
+    int rc = fork();
     if (rc < 0) {
         fprintf(stderr, "fork failed\n");
         exit(1);
     } else if (rc == 0) {
         printf("child) hello\n");
         kill(ppid, SIGINT);
+    } else {
+        pause();
     }
     return 0;
 }
